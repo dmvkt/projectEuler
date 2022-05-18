@@ -21,4 +21,3 @@ func main() {
 	}
 	fmt.Println(sum*sum - squares)
 }
-

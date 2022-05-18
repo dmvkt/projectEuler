@@ -15,33 +15,32 @@ Thus we know that the first number must be a multiple of 11.
 
 package main
 
-import "fmt"
-import "strconv"
+import (
+	"fmt"
+	"strconv"
+)
 
-func reverse_string(s string) string {
-    r := []rune(s)
-    for i, j := 0, len(s) - 1; i < int(len(s)/2); i, j = i + 1, j - 1 {
-        r[i], r[j] = r[j], r[i]
-    }
-    return string(r)
+func revString(s string) string {
+	r := []rune(s)
+	for i, j := 0, len(s)-1; i < int(len(s)/2); i, j = i+1, j-1 {
+		r[i], r[j] = r[j], r[i]
+	}
+	return string(r)
 }
 
 func main() {
-    const divisor = 11
-    max_product := 0
-    for x := int((100 + divisor - 1)/divisor) * divisor; x < 1000; x += divisor {
-        for y := 100; y < 1000; y++ {
-            product := x * y
-            if strconv.Itoa(product) != reverse_string(strconv.Itoa(product)) {
-                continue
-            }
-            if product > max_product {
-                max_product = product
-            }
-        }
-    }
-    fmt.Println(max_product)
+	const divisor = 11
+	max := 0
+	for x := int((100+divisor-1)/divisor) * divisor; x < 1000; x += divisor {
+		for y := 100; y < 1000; y++ {
+			product := x * y
+			if strconv.Itoa(product) != revString(strconv.Itoa(product)) {
+				continue
+			}
+			if product > max {
+				max = product
+			}
+		}
+	}
+	fmt.Println(max)
 }
-
-
-

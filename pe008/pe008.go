@@ -35,6 +35,7 @@ func getData(filename string) {
 	for input.Scan() {
 		data += string(input.Text())
 	}
+	f.Close()
 }
 
 func main() {

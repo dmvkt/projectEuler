@@ -11,41 +11,39 @@ package main
 import "fmt"
 import "math"
 
-var the_number = 600851475143
+var number = 600851475143
 
-func generate_primes(upper_bound int) []int {
-    var candidates = make([]uint8, upper_bound + 1)
-    candidates[0] = 1
-    candidates[1] = 1
-    for i := 2; i <= upper_bound; i++ {
-        if candidates[i] == 1 {
-            continue
-        }
-        for j := 2 * i; j <= upper_bound; j += i {
-            candidates[j] = 1
-        }
-    }
-    
-    var result []int
-    
-    for i := len(candidates) - 1; i >= 0; i-- {
-        if candidates[i] == 1 {
-            continue
-        }
-        result = append(result, i)
-    }
-    return result
+func getPrimes(upper int) []int {
+	var result []int
+	var candidates = make([]uint8, upper+1)
+
+	candidates[0], candidates[1] = 1, 1
+	for i := 2; i <= upper; i++ {
+		if candidates[i] == 1 {
+			continue
+		}
+		for j := 2 * i; j <= upper; j += i {
+			candidates[j] = 1
+		}
+	}
+
+	for i := len(candidates) - 1; i >= 0; i-- {
+		if candidates[i] == 1 {
+			continue
+		}
+		result = append(result, i)
+	}
+	return result
 }
 
 func main() {
-    result := 0
-    var primes []int = generate_primes(int(math.Sqrt(float64(the_number))))
-    for _, p := range primes {
-        if the_number % p == 0 {
-            result = p
-            break
-        }
-    }
-	
+	result := 0
+	var primes []int = getPrimes(int(math.Sqrt(float64(number))))
+	for _, p := range primes {
+		if number%p == 0 {
+			result = p
+			break
+		}
+	}
 	fmt.Println(result)
 }

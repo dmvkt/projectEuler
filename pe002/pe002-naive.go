@@ -11,24 +11,22 @@ package main
 
 import "fmt"
 
-var max_number = 4 * 1000 * 1000
+var upper = 4 * 1000 * 1000
 
 func main() {
-	result := 0
+	var sum int
+	var fib2 int
 
-	fib_prev := 1
-	fib_cur := 1
-	fib_new := 1
-
+	fib0, fib1 := 1, 1
 	for {
-		fib_new = fib_prev + fib_cur
-		fib_prev, fib_cur = fib_cur, fib_new
-		if fib_new > max_number {
+		fib2 = fib0 + fib1
+		fib0, fib1 = fib1, fib2
+		if fib2 > upper {
 			break
 		}
-		if fib_new % 2 == 0 {
-			result += fib_new
+		if fib2%2 == 0 {
+			sum += fib2
 		}
 	}
-	fmt.Println(result)
+	fmt.Println(sum)
 }
