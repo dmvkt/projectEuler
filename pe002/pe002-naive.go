@@ -17,7 +17,7 @@ func main() {
 	var sum int
 	var fib2 int
 
-	fib0, fib1 := 1, 1
+	fib0, fib1 := 0, 1
 	for {
 		fib2 = fib0 + fib1
 		fib0, fib1 = fib1, fib2

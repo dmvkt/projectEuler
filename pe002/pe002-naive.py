@@ -13,16 +13,16 @@ max_number = 4 * 10**6
 
 def main():
     result = 0
-    fib_prev = 1
-    fib_cur = 1
+    fib0 = 0
+    fib1 = 1
     
     while True:
-        fib_new = fib_prev + fib_cur
-        fib_prev, fib_cur = fib_cur, fib_new
-        if fib_new > max_number:
+        fib2 = fib0 + fib1
+        fib0, fib1 = fib1, fib2
+        if fib2 > max_number:
             break
-        if (fib_new % 2 == 0):
-            result += fib_new
+        if (fib2 % 2 == 0):
+            result += fib2
     return str(result)
 
 if __name__ == "__main__":
