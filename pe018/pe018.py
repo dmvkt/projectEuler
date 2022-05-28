@@ -5,8 +5,8 @@ Project Euler, Problems 18 & 67:
 
 Find the maximum total from top to bottom in a text file containing a triangle
 with:
- 1) 15 (input18.txt) rows,
- 2) 100 (input67.txt) rows.
+ 1) 15 rows (input18.txt),
+ 2) 100 rows (input67.txt).
 
 https://projecteuler.net/problem=18
 https://projecteuler.net/problem=67
